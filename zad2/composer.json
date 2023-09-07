@@ -1,0 +1,18 @@
+{
+    "name": "contelizer/zad2",
+    "description": "recruitment task no 2",
+    "autoload": {
+        "psr-4": {
+            "Contelizer\\Zad2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kabix09",
+            "email": "kabix.009@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^10.3"
+    }
+}
