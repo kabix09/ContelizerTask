@@ -117,6 +117,17 @@ final class HttpClient
         return $this->genericResponse($response);
     }
 
+    public function findUserByName(string $username)
+    {
+        $response = $this->httpClient->get($this->apiVersion . '/users?name=' . $username, [
+            'headers' => [
+                'Authorization' => "Bearer {$this->token->getAccessToken()}",
+            ]
+        ]);
+
+        return $this->genericResponse($response);
+    }
+
     private function genericResponse(ResponseInterface $response): GoRestResponse
     {
         if (200 !== $response->getStatusCode()) {

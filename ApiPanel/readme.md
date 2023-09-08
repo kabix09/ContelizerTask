@@ -50,6 +50,10 @@ To get the user's posts:
 http://localhost:8000/user/${user_id}/posts
 ```
 
+To check the list of users with a given name
+```
+http://localhost:8000/user/${username}
+```
 
 ## Troubleshooting
 

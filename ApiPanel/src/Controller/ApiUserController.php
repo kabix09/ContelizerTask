@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Utils\Http\HttpClient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,5 +29,13 @@ class ApiUserController extends AbstractController
         return $this->render('panel/user/list.html.twig', [
             'users' => $users,
         ]);
+    }
+
+    #[Route('/user/{username}', name: 'app_api_user_find')]
+    public function findUserByUsername(string $username): JsonResponse
+    {
+        $result = $this->httpClient->findUserByName($username);
+
+        return new JsonResponse($result->getResponseContent());
     }
 }
