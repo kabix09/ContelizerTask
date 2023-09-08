@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Posts list</h1>
+            <p class="col-md-8 fs-4">List of posts by <u> {{ author.name }} </u></br>
+                <small>Email: {{ author.email }}</small>
+
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="p-5 mb-4 rounded-3 d-flex flex-row flex-wrap mb-3 justify-content-around">
+            {% for post in posts %}
+                <div class="card mb-3" style="width: 23rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ post.title }}</h5>
+
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ post.body }}</p>
+                        <h6 class="card-subtitle mb-2 text-muted">Author: {{ author.name }}</h6>
+
+                        <a href="{{ path("app_post_edit", {'id': post.id}) }}" class="btn btn-outline-warning" type="button">Edit</a>
+                    </div>
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+
+{% endblock %}
